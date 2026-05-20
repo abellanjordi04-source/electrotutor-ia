@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ElectroTutor IA - Aprende electricidad desde cero</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 24px 0;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .badge {
+      background: #f97316;
+      color: #111827;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 80px 0 60px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #cbd5e1;
+      margin-bottom: 28px;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      background: #f97316;
+      color: #111827;
+    }
+
+    .btn-secondary {
+      border: 1px solid #475569;
+      color: #f8fafc;
+    }
+
+    .small-note {
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    .card {
+      background: #111827;
+      border: 1px solid #334155;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .chat-example {
+      background: #020617;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 18px;
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+
+    .chat-example strong {
+      color: #f8fafc;
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      font-size: 34px;
+      margin-bottom: 18px;
+    }
+
+    .section-subtitle {
+      color: #cbd5e1;
+      font-size: 18px;
+      margin-bottom: 34px;
+      max-width: 760px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      background: #111827;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 22px;
+    }
+
+    .feature h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .feature p {
+      color: #cbd5e1;
+      font-size: 16px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      background: #111827;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .step span {
+      display: inline-block;
+      background: #f97316;
+      color: #111827;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .price-card {
+      background: #111827;
+      border: 2px solid #f97316;
+      border-radius: 20px;
+      padding: 34px;
+      max-width: 480px;
+    }
+
+    .price {
+      font-size: 44px;
+      font-weight: bold;
+      margin: 16px 0;
+    }
+
+    ul {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+      color: #cbd5e1;
+    }
+
+    li::before {
+      content: "✓ ";
+      color: #f97316;
+      font-weight: bold;
+    }
+
+    .warning {
+      background: #1e293b;
+      border-left: 4px solid #f97316;
+      padding: 20px;
+      border-radius: 10px;
+      color: #cbd5e1;
+    }
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid #1e293b;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 50px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .grid, .steps {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">ElectroTutor IA</div>
+      <div class="badge">Beta privada</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div>
+        <h1>Aprende electricidad desde cero con un profesor IA paso a paso.</h1>
+        <p>ElectroTutor IA explica conceptos eléctricos de forma sencilla, propone ejercicios, corrige respuestas y te ayuda a entender esquemas, protecciones y averías básicas.</p>
+        <div class="cta-group">
+          <a class="btn btn-primary" href="#acceso">Quiero acceso beta</a>
+          <a class="btn btn-secondary" href="#como-funciona">Ver cómo funciona</a>
+        </div>
+        <div class="small-note">Pensado para principiantes, alumnos de FP y personas que quieren empezar en electricidad.</div>
+      </div>
+
+      <div class="card">
+        <h3>Ejemplo de uso</h3>
+        <div class="chat-example">
+          <p><strong>Alumno:</strong> No entiendo la diferencia entre diferencial y magnetotérmico.</p>
+          <br />
+          <p><strong>ElectroTutor IA:</strong> El diferencial detecta fugas de corriente. El magnetotérmico protege contra sobrecargas y cortocircuitos. Te lo explico con un ejemplo sencillo...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <h2 class="section-title">El problema</h2>
+      <p class="section-subtitle">Mucha gente quiere aprender electricidad, pero se encuentra con explicaciones demasiado técnicas, vídeos desordenados o cursos que dan por sabidas cosas básicas.</p>
+      <div class="grid">
+        <div class="feature">
+          <h3>Demasiada teoría difícil</h3>
+          <p>Muchos contenidos explican electricidad como si el alumno ya tuviera base.</p>
+        </div>
+        <div class="feature">
+          <h3>Dudas sin resolver</h3>
+          <p>El principiante se atasca en conceptos como fase, neutro, tierra, corriente o protecciones.</p>
+        </div>
+        <div class="feature">
+          <h3>Falta de práctica</h3>
+          <p>Entender electricidad requiere ejercicios, ejemplos, errores típicos y corrección paso a paso.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="como-funciona">
+      <h2 class="section-title">Qué hace ElectroTutor IA</h2>
+      <p class="section-subtitle">Funciona como un tutor personal que adapta la explicación al nivel del alumno.</p>
+      <div class="grid">
+        <div class="feature">
+          <h3>Explica desde cero</h3>
+          <p>Tensión, corriente, resistencia, potencia, AC/DC, fase, neutro, tierra y más.</p>
+        </div>
+        <div class="feature">
+          <h3>Propone ejercicios</h3>
+          <p>Ejercicios de ley de Ohm, potencia, serie, paralelo y protecciones.</p>
+        </div>
+        <div class="feature">
+          <h3>Corrige respuestas</h3>
+          <p>Explica el fallo y vuelve a plantear ejercicios similares para reforzar.</p>
+        </div>
+        <div class="feature">
+          <h3>Hace tests por nivel</h3>
+          <p>Preguntas tipo test para principiantes, nivel básico y repaso general.</p>
+        </div>
+        <div class="feature">
+          <h3>Ayuda con esquemas</h3>
+          <p>Explica componentes, contactos, bobinas, relés, contactores y recorridos de corriente.</p>
+        </div>
+        <div class="feature">
+          <h3>Prioriza seguridad</h3>
+          <p>Diferencia teoría y práctica real. No anima a puentear protecciones ni trabajar con tensión.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <h2 class="section-title">Cómo se aprende</h2>
+      <p class="section-subtitle">El sistema guía al alumno de forma progresiva.</p>
+      <div class="steps">
+        <div class="step">
+          <span>1</span>
+          <h3>Empiezas desde cero</h3>
+          <p>La IA te explica los conceptos básicos sin tecnicismos innecesarios.</p>
+        </div>
+        <div class="step">
+          <span>2</span>
+          <h3>Practicas</h3>
+          <p>Resuelves ejercicios de electricidad básica paso a paso.</p>
+        </div>
+        <div class="step">
+          <span>3</span>
+          <h3>Te corrige</h3>
+          <p>Si fallas, te explica el error con un ejemplo más fácil.</p>
+        </div>
+        <div class="step">
+          <span>4</span>
+          <h3>Subes de nivel</h3>
+          <p>Avanzas hacia protecciones, esquemas, contactores y averías básicas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <h2 class="section-title">Para quién es</h2>
+      <div class="grid">
+        <div class="feature">
+          <h3>Principiantes</h3>
+          <p>Personas que quieren entender electricidad desde cero.</p>
+        </div>
+        <div class="feature">
+          <h3>Alumnos de FP</h3>
+          <p>Apoyo para estudiar conceptos, esquemas y ejercicios básicos.</p>
+        </div>
+        <div class="feature">
+          <h3>Ayudantes de electricista</h3>
+          <p>Refuerzo para comprender lo que se ve en instalaciones y cuadros.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="acceso">
+      <h2 class="section-title">Acceso beta</h2>
+      <p class="section-subtitle">Estamos probando la primera versión. El acceso beta sirve para validar la idea con usuarios reales y mejorar el contenido.</p>
+      <div class="price-card">
+        <h3>Beta mensual</h3>
+        <div class="price">5 €/mes</div>
+        <p>Acceso inicial para probar ElectroTutor IA durante la fase beta.</p>
+        <ul>
+          <li>Chat educativo de electricidad básica</li>
+          <li>Rutas de aprendizaje desde cero</li>
+          <li>Ejercicios corregidos paso a paso</li>
+          <li>Tests por nivel</li>
+          <li>Explicaciones de protecciones y esquemas</li>
+        </ul>
+        <a class="btn btn-primary" href="mailto:TUEMAIL@EJEMPLO.COM?subject=Quiero acceso beta a ElectroTutor IA">Solicitar acceso beta</a>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="warning">
+        <strong>Aviso de seguridad:</strong> ElectroTutor IA es una herramienta educativa. No sustituye formación profesional, normativa aplicable ni la intervención de personal cualificado. No se debe manipular una instalación eléctrica real sin desconectar, verificar ausencia de tensión y cumplir las medidas de seguridad correspondientes.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 ElectroTutor IA. Proyecto educativo en fase beta.
+    </div>
+  </footer>
+</body>
+</html>
